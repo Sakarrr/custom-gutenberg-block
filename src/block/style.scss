@@ -1,0 +1,130 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+.outside-block{
+  display: flex;
+  gap: 25px;
+  max-width: 1440px;
+  max-height: 900px;
+  padding: 75px 48px;
+}
+
+.outside-block-left-content {
+  width: 60%;
+
+  li {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    border-radius: 16px;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+}
+
+.outside-block-right-content {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: "Roboto Condensed";
+    font-size: 64px;
+    font-weight: 400;
+    color: #0F234C;
+    max-width: 400px;
+    margin-bottom: 64px;
+  }
+
+  h6 {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 600;
+    color: #0F234C;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-family: "Roboto";
+    font-size: 14px;
+    color: #212121;
+  }
+
+  .accordion {
+    position: relative;
+    padding: 14px 0;
+    border-top: 1px solid #CCCEB7;
+
+    &-title {
+      font-family: "Roboto";
+      font-size: 24px;
+      color: #CCCEB7;
+      cursor: pointer;
+
+      &.open {
+      color: #212121;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 0;
+        height: 3px;
+        width: 0;
+        background: #CCCEB7;
+      }
+
+      &.active::before {
+        width: 100%;
+        transition: width var(--animation-duration, 10s) linear;
+      }
+
+      &.open::before {
+        width: 100%;
+      }
+    }
+
+    &-content {
+      display: none;
+      font-family: "Roboto";
+      font-size: 16px;
+      color: #212121;
+      margin-top: 8px;
+    }
+  }
+}
+.outside-block-right-content > *:nth-child(3) {
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 900px) {
+    .outside-block {
+      flex-direction: column;
+      gap: 25px;
+      padding: 0 20px;
+      margin: 25px 0;
+      max-width: 100vh;
+      max-height: unset;
+    }
+
+    .outside-block-left-content {
+        width: 100%;
+    }
+
+    .outside-block-right-content {
+      gap: 25px;
+
+      h1 {
+        font-size: 40px;
+        max-width: 300px;
+        margin: 0;
+      }
+    }
+}
