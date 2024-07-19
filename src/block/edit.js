@@ -19,10 +19,10 @@ const EditComponent = ({ attributes, setAttributes }) => {
         setAttributes({ image: null });
     };
 
-    const [openAccordion, setOpenAccordion] = useState(null);
+    const [openAccordion, setOpenAccordion] = useState(1);
 
     const toggleAccordion = (id) => {
-        setOpenAccordion(openAccordion === id ? null : id);
+        setOpenAccordion(openAccordion === id ? 1 : id);
     };
 
     const Accordion = ({ id, title, description, isOpen, toggleAccordion }) => {
@@ -36,7 +36,7 @@ const EditComponent = ({ attributes, setAttributes }) => {
                     {title}
                 </div>
                 {isOpen && (
-                    <div className="accordion-content">
+                    <div className="accordion-content" style={{ display: isOpen ? 'flex' : 'none' }}>
                         <p>{description}</p>
                     </div>
                 )}
