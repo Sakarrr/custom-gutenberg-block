@@ -31,21 +31,24 @@ function custom_plugin_scripts() {
 add_action( 'wp_enqueue_scripts', 'custom_plugin_scripts' );
 add_action( 'enqueue_block_editor_assets', 'custom_plugin_scripts' );
 
-function outside_block_init() {
-	wp_register_script(
+function outside_block_editor_assets() {
+	wp_enqueue_script(
 		'outside-block',
-		plugin_dir_url( __FILE__ ) .
-		'build/block.js',
-		array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' )
+		plugin_dir_url( __FILE__ ) . 'build/block.js',
+		array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components' ),
+		filemtime( plugin_dir_path( __FILE__ ) . 'build/block.js' )
 	);
 
-	wp_register_style(
+	wp_enqueue_style(
 		'outside-block-editor',
 		plugins_url( 'build/editor.css', __FILE__ ),
 		array( 'wp-edit-blocks' ),
 		filemtime( plugin_dir_path( __FILE__ ) . 'build/editor.css' )
 	);
+}
+add_action( 'enqueue_block_editor_assets', 'outside_block_editor_assets' );
 
+function outside_block_init() {
 	wp_register_style(
 		'outside-block',
 		plugins_url( 'build/style.css', __FILE__ ),
@@ -63,3 +66,14 @@ function outside_block_init() {
 	);
 }
 add_action( 'init', 'outside_block_init' );
+
+function localize_attributes() {
+	wp_localize_script(
+		'outside-init',
+		'blockAttributes',
+		array(
+			'autoplay' => get_option( 'autoplay', true ),
+		)
+	);
+}
+add_action( 'wp_enqueue_scripts', 'localize_attributes' );

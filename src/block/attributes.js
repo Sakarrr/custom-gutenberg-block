@@ -11,6 +11,10 @@ export const blockAttributes = {
         type: 'string',
         default: 'https://vimeo.com/286183716',
     },
+    autoplay:{
+        type: 'boolean',
+        default: 1,
+    },
     heading: {
         type: 'string',
         default: 'It’s not magic, It’s science',

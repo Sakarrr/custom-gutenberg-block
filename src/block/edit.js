@@ -3,13 +3,13 @@ import {Fragment} from "react";
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const { MediaUpload, MediaUploadCheck, InspectorControls } = wp.blockEditor;
-const { PanelBody, Button, TextControl } = wp.components;
+const { PanelBody, Button, TextControl, ToggleControl } = wp.components;
 const { useState  } = wp.element;
 
 import { getYoutubeEmbedUrl, getVimeoEmbedUrl, accordion } from '../utils/utils'; // Import utility functions if they are in a separate file
 
 const EditComponent = ({ attributes, setAttributes }) => {
-    const { image, youtubeUrl, vimeoUrl, heading, footerHeader, footerText } = attributes;
+    const { image, youtubeUrl, vimeoUrl, autoplay, heading, footerHeader, footerText } = attributes;
 
     const onSelectImage = (media) => {
         setAttributes({ image: { id: media.id, url: media.url, alt: media.alt } });
@@ -77,6 +77,11 @@ const EditComponent = ({ attributes, setAttributes }) => {
                             label={__('Vimeo Video URL', 'gutenberg-splide-slider')}
                             value={vimeoUrl}
                             onChange={(value) => setAttributes({ vimeoUrl: value })}
+                        />
+                        <ToggleControl
+                            label="Autoplay"
+                            checked={autoplay}
+                            onChange={(value) => setAttributes({ autoplay: value })}
                         />
                     </PanelBody>
                     <PanelBody title={__('Text Settings', 'gutenberg-splide-slider')} initialOpen={false}>
