@@ -62,7 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Sync Splide slider with accordion
-            splide.go(index);
+            if(index <3 ){
+                splide.go(index);
+            }
         });
     });
 });
