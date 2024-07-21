@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6, p {
 
       &.active::before {
         width: 100%;
-        transition: width var(--animation-duration, 10s) linear;
+        transition: width var(--animation-duration) linear;
       }
 
       &.open::before {
@@ -102,11 +102,7 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
-.outside-block-right-content .accordion:last-child .accordion-title.activentent::before {
-  height: 0 !important;
-}
-
-.outside-block-right-content .accordion-title.active:last-of-type::before {
+.outside-block-right-content .accordion:last-child .accordion-title.active::before {
   height: 0 !important;
 }
 
