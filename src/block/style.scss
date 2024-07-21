@@ -142,4 +142,16 @@ h1, h2, h3, h4, h5, h6, p {
     .outside-block-left-content {
         width: 100%;
     }
+
+  .outside-block-right-content {
+    .accordion {
+      &-title {
+        font-size: 18px;
+      }
+
+      &-content {
+        font-size: 14px;
+      }
+    }
+  }
 }
