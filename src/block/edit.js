@@ -1,12 +1,11 @@
 import {Fragment} from "react";
 
 const { __ } = wp.i18n;
-const { registerBlockType } = wp.blocks;
 const { MediaUpload, MediaUploadCheck, InspectorControls } = wp.blockEditor;
 const { PanelBody, Button, TextControl, ToggleControl } = wp.components;
 const { useState  } = wp.element;
 
-import { getYoutubeEmbedUrl, getVimeoEmbedUrl, accordion } from '../utils/utils'; // Import utility functions if they are in a separate file
+import { getYoutubeEmbedUrl, getVimeoEmbedUrl, accordion } from '../utils/utils';
 
 const EditComponent = ({ attributes, setAttributes }) => {
     const { image, youtubeUrl, vimeoUrl, autoplay, heading, footerHeader, footerText } = attributes;
