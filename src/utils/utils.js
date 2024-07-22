@@ -1,11 +1,11 @@
 export const getYoutubeEmbedUrl = (url) => {
     const videoId = url.split('v=')[1];
-    return `https://www.youtube.com/embed/${videoId}`;
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`;
 };
 
 export const getVimeoEmbedUrl = (url) => {
     const videoId = url.split('/').pop(); // Get the last segment of the URL
-    return `https://player.vimeo.com/video/${videoId}`;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1`;
 };
 
 export const accordion = [

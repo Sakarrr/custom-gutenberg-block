@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let splide;
-    const sliderInterval = 10000;
-
-    console.log(blockAttributes.autoplay)
+    const sliderInterval = 3000;
 
     if (document.querySelector('.block-splide')) {
         splide = new Splide('.block-splide', {
